@@ -1,223 +1,240 @@
 @import url("https://fonts.googleapis.com/css2?family=Anta&family=Archivo:ital,wght@0,100..900;1,100..900&family=Kanit&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Poppins:wght@400;500&display=swap");
 
 .problem-rectangle {
-    height: 180px;
-    width: 85%;
-    background-color: #a1e5cd;
-    border: 1px solid black;
-    border-radius: 1rem;
-    padding: 0;
-    margin: 1rem 0;
-    padding-top: 0.8rem;
-    box-sizing: border-box;
+  min-height: 24vh;
+  width: 85%;
+  background-color: #a1e5cd;
+  border: 1px solid black;
+  border-radius: 1rem;
+  padding: 0;
+  margin: 1rem 0;
+  padding-top: 0.8rem;
+  box-sizing: border-box;
+  position: relative;
 }
 
 .problem-rectangle-heading {
-    margin-top: 0;
-    margin-left: 1.5rem;
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 1.2rem;
-    min-height: 3rem;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  margin-top: 0;
+  margin-left: 1.5rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.2rem;
+  min-height: 3rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 25vw;
+  margin-bottom: 0;
+  min-height: 10vh;
 }
 
 .problem-difficulty-indicator {
-    background-color: white;
-    min-width: 25%;
-    height: 2.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* text-align: center; */
-    margin: 0;
-    padding: 0;
-    border-radius: 0.7rem;
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 1.3rem;
-    margin-right: 3%;
+  background-color: white;
+  min-width: 20%;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* text-align: center; */
+  margin: 0;
+  padding: 0;
+  border-radius: 0.7rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.3rem;
+  /* margin-right: 3%; */
+  position: absolute;
+  right: 1rem;
 }
 
 .problem-rectangle-company-logo {
-    width: 30px;
-    height: 30px;
-    clip-path: circle();
-    margin: -1.5%;
-    background-color: white;
-    transition: 0.5s ease-in-out;
+  width: 30px;
+  height: 30px;
+  clip-path: circle();
+  margin: -1.5%;
+  background-color: white;
+  transition: 0.5s ease-in-out;
 }
 
 .problem-rectangle-company-logo:hover {
-    transform: scale(1.2);
-    z-index: 1;
+  transform: scale(1.2);
+  z-index: 1;
 }
 
 .problem-rectangle-more-text {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 .problem-logo-text {
-    display: flex;
-    flex-direction: row-reverse;
-    margin-right: 5%;
-    margin-bottom: 5%;
+  display: flex;
+  flex-direction: row-reverse;
+  margin-right: 5%;
+  margin-bottom: 3.5%;
 }
 
 .problem-rectangle-more-text:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .problem-rectangle-solve-problem-container {
-    margin-right: 5rem;
+  margin-right: 5rem;
+  /* margin-bottom: 1rem; */
+  min-height: 5vh;
+  align-items: center;
 }
 
 .GFG-logo-problem-solve-rectangle {
-    height: 30px;
-    margin-left: 1.5rem;
+  height: 30px;
+  margin-left: 1.5rem;
 }
 
 .leetcode-logo-problem-solve-rectangle {
-    height: 40px;
-    margin-left: 1.5rem;
+  height: 40px;
+  margin-left: 1.5rem;
+}
+.problem-component-icon-outer-container {
+  margin-left: 4vw;
 }
 
 .problem-completion-indicator {
-    background-color: white;
-    width: 20%;
-    height: 2.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* text-align: center; */
-    margin: 0;
-    padding: 0;
-    border-radius: 0.7rem;
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 1.3rem;
-    margin-left: 7vw;
-    padding-left: 2vw;
+  background-color: white;
+  min-width: 15%;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* text-align: center; */
+  margin: 0;
+  padding: 0;
+  border-radius: 0.7rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.3rem;
+  /* margin-left: 7vw; */
+  padding-left: 1vw;
+  position: absolute;
+  right: 1rem;
+  /* bottom: 1rem; */
 }
 
 .problem-component-IoNewspaper {
-    width: 25px;
-    height: auto;
-    cursor: pointer;
+  width: 25px;
+  height: auto;
+  cursor: pointer;
 }
 
 .problem-component-IoNewspaperOutline {
-    width: 25px;
-    height: auto;
-    cursor: pointer;
+  width: 25px;
+  height: auto;
+  cursor: pointer;
 }
 
 .problem-component-MdAddCircle {
-    width: 25px;
-    height: auto;
-    cursor: pointer;
+  width: 25px;
+  height: auto;
+  cursor: pointer;
 }
 
 .problem-component-FaStar {
-    width: 25px;
-    height: auto;
-    cursor: pointer;
+  width: 25px;
+  height: auto;
+  cursor: pointer;
 }
 
 .problem-component-IoBookmark {
-    width: 25px;
-    height: auto;
-    cursor: pointer;
+  width: 25px;
+  height: auto;
+  cursor: pointer;
 }
 
 .problem-component-IoIosArrowDown {
-    cursor: pointer;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
 }
 
 @media (max-width: 700px) {
-    .problem-rectangle {
-        width: 90%;
-    }
+  .problem-rectangle {
+    width: 90%;
+  }
 }
 
 @media (max-width: 572px) {
-    .problem-rectangle-heading {
-        font-size: 1rem;
-    }
+  .problem-rectangle-heading {
+    font-size: 1rem;
+  }
 
-    .problem-difficulty-indicator {
-        font-size: 1rem;
-        min-width: 20%;
-    }
+  .problem-difficulty-indicator {
+    font-size: 1rem;
+    min-width: 20%;
+  }
 
-    .problem-rectangle-company-logo {
-        width: 27px;
-        height: 27px;
-    }
+  .problem-rectangle-company-logo {
+    width: 27px;
+    height: 27px;
+  }
 
-    .problem-rectangle-solve-problem-container {
-        margin-right: 3rem;
-    }
+  .problem-rectangle-solve-problem-container {
+    margin-right: 3rem;
+  }
 
-    .GFG-logo-problem-solve-rectangle {
-        height: 25px;
-    }
+  .GFG-logo-problem-solve-rectangle {
+    height: 25px;
+  }
 
-    .leetcode-logo-problem-solve-rectangle {
-        height: 35px;
-        margin-left: 1.2rem;
-    }
+  .leetcode-logo-problem-solve-rectangle {
+    height: 35px;
+    margin-left: 1.2rem;
+  }
 
-    .problem-completion-indicator {
-        width: 20%;
-        height: 2.3rem;
-        font-size: 1rem;
-        margin-left: 6%;
-    }
+  .problem-completion-indicator {
+    width: 20%;
+    height: 2.3rem;
+    font-size: 1rem;
+    /* margin-left: 6%; */
+  }
 }
 
 @media (max-width: 520px) {
-    .problem-rectangle-heading {
-        font-size: 1rem;
-        height: auto;
-    }
+  .problem-rectangle-heading {
+    font-size: 1rem;
+    height: auto;
+  }
 
-    .GFG-logo-problem-solve-rectangle {
-        height: 20px;
-    }
+  .GFG-logo-problem-solve-rectangle {
+    height: 20px;
+  }
 
-    .leetcode-logo-problem-solve-rectangle {
-        height: 30px;
-        margin-left: 1.2rem;
-    }
+  .leetcode-logo-problem-solve-rectangle {
+    height: 30px;
+    margin-left: 1.2rem;
+  }
 }
 
 @media (max-width: 490px) {
-    .problem-rectangle {
-        height: 160px;
-    }
+  .problem-rectangle {
+    height: 160px;
+  }
 
-    .GFG-logo-problem-solve-rectangle {
-        height: 20px;
-    }
+  .GFG-logo-problem-solve-rectangle {
+    height: 20px;
+  }
 
-    .leetcode-logo-problem-solve-rectangle {
-        height: 30px;
-        margin-left: 1rem;
-    }
+  .leetcode-logo-problem-solve-rectangle {
+    height: 30px;
+    margin-left: 1rem;
+  }
 
-    .problem-completion-indicator {
-        margin-left: 5%;
-        font-size: 0.8rem;
-        width: 18%;
-        height: 2rem;
-    }
+  .problem-completion-indicator {
+    margin-left: 5%;
+    font-size: 0.8rem;
+    width: 18%;
+    height: 2rem;
+  }
 }
