@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Anta&family=Archivo:ital,wght@0,100..900;1,100..900&family=Kanit&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Poppins:wght@400;500&display=swap");
 
 .problem-rectangle {
-  min-height: 24vh;
+  min-height: 21vh;
   width: 85%;
   background-color: #a1e5cd;
   border: 1px solid black;
@@ -28,7 +28,7 @@
   text-overflow: ellipsis;
   max-width: 25vw;
   margin-bottom: 0;
-  min-height: 10vh;
+  min-height: 8.5vh;
 }
 
 .problem-difficulty-indicator {
@@ -58,6 +58,7 @@
   margin: -1.5%;
   background-color: white;
   transition: 0.5s ease-in-out;
+  display: none;
 }
 
 .problem-rectangle-company-logo:hover {
@@ -96,6 +97,7 @@
 .leetcode-logo-problem-solve-rectangle {
   height: 40px;
   margin-left: 1.5rem;
+  display: none;
 }
 .problem-component-icon-outer-container {
   margin-left: 4vw;
@@ -103,11 +105,9 @@
 
 .problem-completion-indicator {
   background-color: white;
-  min-width: 15%;
+  min-width: 20%;
   height: 2.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
   /* text-align: center; */
   margin: 0;
   padding: 0;
@@ -117,9 +117,12 @@
   font-style: normal;
   font-size: 1.3rem;
   /* margin-left: 7vw; */
-  padding-left: 1vw;
+  /* padding-left: 1vw; */
   position: absolute;
   right: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   /* bottom: 1rem; */
 }
 
@@ -157,8 +160,36 @@
   cursor: pointer;
   margin: 0;
   padding: 0;
+  margin-left: 5%;
+  margin-top: 3%;
 }
-
+.problem-component-status-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 100%;
+  background-color: white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 0.5vh;
+  border-radius: 0.7rem;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.problem-component-status-dropdown-menu-option-1 {
+  color: #50c878;
+  cursor: pointer;
+}
+.problem-component-status-dropdown-menu-option-2 {
+  color: rgb(221, 221, 57);
+  cursor: pointer;
+}
+.problem-component-status-dropdown-menu-option-3 {
+  color: rgb(243, 55, 55);
+  cursor: pointer;
+}
 @media (max-width: 700px) {
   .problem-rectangle {
     width: 90%;

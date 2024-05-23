@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./style.css";
 import Microsoft from "./styles/Microsoft.png";
 import Google from "./styles/Google.jpg";
@@ -25,6 +25,9 @@ export default function ProblemComponent({
   const [hoveredAdd, setHoveredAdd] = useState(false);
   const [hoveredStar, setHoveredStar] = useState(false);
   const [hoveredBookMark, setHoveredBookMark] = useState(false);
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+  const [selectedStatus, setSelectedStatus] = useState("Unsolved");
+  // const dropdownRef = useRef(null);
   // const toggleExpansion = () => {
   //   setExpanded(!expanded);
   // };
@@ -68,6 +71,35 @@ export default function ProblemComponent({
     setHoveredBookMark(false);
     setShowText(false);
   };
+  const toggleDropdown = () => {
+    setIsDropdownVisible((prevState) => !prevState);
+  };
+  const handleStatusChange = (status) => {
+    setSelectedStatus(status);
+    setIsDropdownVisible(false);
+  };
+  const statusColors = {
+    Solved: "#50c878",
+    Revision: "rgb(221, 221, 57)",
+    Unsolved: "rgb(243, 55, 55)",
+  };
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      const dropdownMenu = document.querySelector(
+        ".problem-component-status-dropdown-menu"
+      );
+      if (dropdownMenu && !dropdownMenu.contains(event.target)) {
+        setIsDropdownVisible(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <div className="problem-rectangle">
       <div
@@ -266,11 +298,46 @@ export default function ProblemComponent({
           className="problem-completion-indicator"
           style={{ color: "black" }}
         >
-          Status
-          <IoIosArrowDown
-            className="problem-component-IoIosArrowDown"
-            //style={{ paddingLeft: "5px", cursor: "pointer" }}
-          />
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <span style={{ color: statusColors[selectedStatus] }}>
+              {selectedStatus}
+            </span>
+            <IoIosArrowDown
+              className="problem-component-IoIosArrowDown"
+              onClick={toggleDropdown}
+
+              //style={{ paddingLeft: "5px", cursor: "pointer" }}
+            />
+          </div>
+          {isDropdownVisible && (
+            <div className="problem-component-status-dropdown-menu">
+              {/* Dropdown menu items */}
+              <div
+                className="problem-component-status-dropdown-menu-option-1"
+                onClick={() => handleStatusChange("Solved")}
+              >
+                Solved
+              </div>
+              <div
+                className="problem-component-status-dropdown-menu-option-2"
+                onClick={() => handleStatusChange("Revision")}
+              >
+                Revision
+              </div>
+              <div
+                className="problem-component-status-dropdown-menu-option-3"
+                onClick={() => handleStatusChange("Unsolved")}
+              >
+                Unsolved
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
