@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+.TopicSolvedcontainer {
+    border: 1.5px solid #ECECEC;
+    border-radius: 2rem;
+    height: auto;
+    width: 25vw;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .TopicSolvedsection {
+    margin-bottom: 20px;
+  }
+  .TopicSolvedsection h3{
+    font-weight: 450;
+    margin: 2rem 0 1rem 1.9rem;
+  }
+  .TopicSolvedlanguageItem .languageName{
+    background: #ECECEC;
+    padding: 0.4rem 1rem;
+    border-radius: 1.4rem;
+    font-size: 1rem;
+    margin: 0.2rem 0 0.2rem 2.5rem;
+  }
+  .TopicShowMore{
+    text-align: center;
+    opacity: 0.6;
+    margin: 1rem 0;
+  }
+  .TopicSolvedlanguageItem .NoProblems{
+    margin: 0.6rem 2.5rem 0.2rem 0;
+    opacity: 0.6;
+  }
+  .TopicSolvedlanguageItem,
+  .TopicSolvedtopicItem {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+  }
+  .TopicSolvedsection .TopicSolvedName{
+    background: #ECECEC;
+    padding: 0.4rem 1rem;
+    border-radius: 1.4rem;
+    font-size: 1rem;
+    margin: 0.2rem 0 0.2rem 2.5rem;
+  }
+  .TopicsHr{
+    width: 80%; /* Adjust the width as needed */
+    margin: 20px auto; /* Center the HR element */
+    border: none;
+    border-top: 1px solid #ccc;
+  }
+  .TopicSolvedsection .TopicSolvedCount{
+    margin: 0.6rem 2.5rem 0.2rem 0;
+    opacity: 0.6;
+  }
+  .TopicSolvedtotal {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
