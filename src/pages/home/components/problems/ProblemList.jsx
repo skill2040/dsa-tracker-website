@@ -4,7 +4,7 @@ import ProblemComponent from "./components/ProblemComponent.jsx";
 import "./style.css";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 export default function ProblemsList() {
-  const [problems, setProblems] = useState([0]);
+  const [problems, setProblems] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const problemsPerPage = 10;
   const maxPageNumbersToShow = 5;
@@ -26,8 +26,8 @@ export default function ProblemsList() {
   const indexOfLastProblem = currentPage * problemsPerPage;
   const indexOfFirstProblem = indexOfLastProblem - problemsPerPage;
   const currentProblems = problems.slice(
-    indexOfFirstProblem,
-    indexOfLastProblem
+    (currentPage-1)*problemsPerPage,
+    currentPage*problemsPerPage
   );
 
   // Calculate total pages
@@ -80,7 +80,7 @@ export default function ProblemsList() {
 
   return (
     <div>
-      {problems.length>0 && currentProblems.map((problem) => (
+      {problems.length!==0 && currentProblems.map((problem) => (
         <ProblemComponent
           key={problem._id}
           problemName={problem.Problem}
