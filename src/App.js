@@ -26,12 +26,12 @@ function App() {
                 </PrivateRoute>
               }
             />
+            <Route path="/" element={<Home />} />
           </Routes>
-
         </AuthProvider>
         <Routes>
           <Route path="/leaderboard" element={<Leaderboard />} />
-          <Route path="/" element={<Home />} />
+
           <Route path="/settings" element={<Settings />} />
         </Routes>
       </Router>
