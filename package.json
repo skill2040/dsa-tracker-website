@@ -21,6 +21,7 @@
     "react-router-dom": "^6.23.1",
     "react-scripts": "5.0.1",
     "react-syntax-highlighter": "^15.5.0",
+    "react-toastify": "^10.0.5",
     "use-sound": "^4.0.1",
     "web-vitals": "^2.1.4"
   },
