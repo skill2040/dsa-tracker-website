@@ -4,7 +4,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  margin-top: 20px;
+  height: auto;
 }
 .inner-container-login {
   width: 25vw;
@@ -24,14 +25,14 @@
   font-family: "Kanit", sans-serif;
   font-weight: 600;
   font-style: normal;
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin: 1rem;
   text-align: center;
 }
 .login-component-label-and-input-container {
   display: flex;
   flex-direction: column;
-  font-size: 1.4rem;
+  font-size: 1.1rem;
 }
 .login-component-label {
   font-family: "Poppins", sans-serif;
@@ -48,7 +49,7 @@
   border-radius: 10px;
   border: 1px solid #c7c2c2;
   margin-bottom: 1rem;
-  font-size: 1.375rem;
+  font-size: 1.275rem;
   padding-left: 4rem;
 }
 .login-component-input::placeholder {
@@ -65,17 +66,17 @@
   transform: translateY(-65%);
 }
 .login-component-input-icon {
-  font-size: 1.7rem;
+  font-size: 1.4rem;
 }
 .login-component-input-icon-phone {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 .login-component-login-button-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-top: 1.3rem;
+  margin-bottom: 1.3rem;
 }
 .login-component-login-button {
   cursor: pointer;
@@ -84,10 +85,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 50px;
+  height: 40px;
   position: relative;
   padding: 0 20px;
-  font-size: 18px;
+  font-size: 10px;
   text-transform: uppercase;
   border: 0;
   box-shadow: hsl(214, 5%, 26%) 0px 7px 0px 0px;
@@ -104,7 +105,7 @@
   justify-content: center;
   position: absolute;
   inset: 0;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: bold;
   color: white;
   letter-spacing: 4px;
@@ -125,7 +126,7 @@
 
 .login-component-login-button i {
   color: white;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: bold;
   letter-spacing: 4px;
   font-style: normal;
@@ -163,7 +164,7 @@
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-style: normal;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
 }
 .login-component-google-button-container {
   display: flex;
@@ -176,7 +177,7 @@
   max-width: 320px;
   display: flex;
   padding: 0.5rem 1.4rem;
-  font-size: 0.875rem;
+  font-size: 0.775rem;
   line-height: 1.25rem;
   font-weight: 700;
   text-align: center;
@@ -203,7 +204,7 @@
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   margin-top: 0.5rem;
 }
 .login-component-signup-redirect {

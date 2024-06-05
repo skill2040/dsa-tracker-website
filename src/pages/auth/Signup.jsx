@@ -9,6 +9,7 @@ import { MdAlternateEmail } from "react-icons/md";
 import { BiRename } from "react-icons/bi";
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoLockClosed } from "react-icons/io5";
+import Login from "./Login";
 
 const Signup = () => {
   const emailRef = useRef();
@@ -20,6 +21,7 @@ const Signup = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const [showLoginModal, setShowLoginModal] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -60,6 +62,9 @@ const Signup = () => {
     } catch (error) {
       setError("Failed to sign up with Google");
     }
+  };
+  const handleLoginModal = () => {
+    setShowLoginModal(true);
   };
   return (
     <div className="outer-container-signup">
@@ -193,9 +198,8 @@ const Signup = () => {
       </div>
       <div className="signup-component-login-redirect-description">
         Already have an account?{" "}
-        <a href="/login" className="signup-component-login-redirect">
-          Login
-        </a>
+        <span onClick={handleLoginModal} className="signup-component-login-redirect">Login</span>
+        {showLoginModal && <Login />}
       </div>
     </div>
   );

@@ -27,6 +27,7 @@ function App() {
               }
             />
           </Routes>
+
         </AuthProvider>
         <Routes>
           <Route path="/leaderboard" element={<Leaderboard />} />
