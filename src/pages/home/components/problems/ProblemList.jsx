@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import ProblemComponent from "./components/ProblemComponent.jsx";
 import "./style.css";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
+import LoadingComponent from "../../../../components/loading/LoadingComponent.jsx";
 
 const ProblemsList = ({ selectedTopics, selectedDifficulties }) => {
-
   const [data, setData] = useState({});
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
@@ -13,17 +13,21 @@ const ProblemsList = ({ selectedTopics, selectedDifficulties }) => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("https://dsa-tracker-backend-kappa.vercel.app/home", {
-        method: 'GET'
-      });
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      const response = await fetch(
+        "https://dsa-tracker-backend-kappa.vercel.app/home",
+        {
+          method: "GET",
+        }
+      );
       if (!response.ok) {
-        throw new Error('Failed to fetch');
+        throw new Error("Failed to fetch");
       }
       const responseData = await response.json();
       setData(responseData.data);
       setLoading(false);
     } catch (error) {
-      console.error('Fetch error:', error);
+      console.error("Fetch error:", error);
       setError(error);
       setLoading(false);
     }
@@ -34,7 +38,13 @@ const ProblemsList = ({ selectedTopics, selectedDifficulties }) => {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="loading-column">
+        {Array.from({ length: 4 }).map((_, index) => (
+          <LoadingComponent key={index} />
+        ))}
+      </div>
+    );
   }
 
   if (error) {
@@ -42,20 +52,23 @@ const ProblemsList = ({ selectedTopics, selectedDifficulties }) => {
   }
 
   // Filter data based on selected topics and difficulties
-  const filteredData = selectedTopics.length || selectedDifficulties.length
-    ? Object.keys(data).reduce((acc, topic) => {
-      if (selectedTopics.length && !selectedTopics.includes(topic)) {
-        return acc;
-      }
-      const filteredProblems = data[topic].filter(problem =>
-        selectedDifficulties.length ? selectedDifficulties.includes(problem.Difficulty) : true
-      );
-      if (filteredProblems.length) {
-        acc[topic] = filteredProblems;
-      }
-      return acc;
-    }, {})
-    : data;
+  const filteredData =
+    selectedTopics.length || selectedDifficulties.length
+      ? Object.keys(data).reduce((acc, topic) => {
+          if (selectedTopics.length && !selectedTopics.includes(topic)) {
+            return acc;
+          }
+          const filteredProblems = data[topic].filter((problem) =>
+            selectedDifficulties.length
+              ? selectedDifficulties.includes(problem.Difficulty)
+              : true
+          );
+          if (filteredProblems.length) {
+            acc[topic] = filteredProblems;
+          }
+          return acc;
+        }, {})
+      : data;
 
   // Pagination logic
   const totalTopics = Object.keys(filteredData).length;
@@ -63,7 +76,10 @@ const ProblemsList = ({ selectedTopics, selectedDifficulties }) => {
 
   const startTopicIndex = (currentPage - 1) * topicsPerPage;
   const endTopicIndex = Math.min(startTopicIndex + topicsPerPage, totalTopics);
-  const currentTopics = Object.keys(filteredData).slice(startTopicIndex, endTopicIndex);
+  const currentTopics = Object.keys(filteredData).slice(
+    startTopicIndex,
+    endTopicIndex
+  );
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);

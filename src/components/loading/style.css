@@ -1,0 +1,89 @@
+/* :root {
+  --nav-height: calc(5vh+1vw);
+}
+.nav-bar-loading-component {
+  height: var(--nav-height);
+  height: 10vh;
+  background-color: #d9d9d9;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+      90deg,
+      #0000 33%,
+      rgba(255, 255, 255, 0.8) 50%,
+      #0000 66%
+    )
+    #eaeaea;
+  background-size: 300% 100%;
+  animation: shine 1.6s infinite;
+  border-radius: 0 0 3rem 3rem;
+}
+
+.intro-loading-component-container {
+  display: flex;
+  justify-content: center;
+}
+.intro-loading-component {
+  width: 65vw;
+  background-color: #eaeaea;
+  height: 23vh;
+  margin: 5vh;
+  background: linear-gradient(
+      90deg,
+      #0000 33%,
+      rgba(255, 255, 255, 0.8) 50%,
+      #0000 66%
+    )
+    #eaeaea;
+  background-size: 300% 100%;
+  animation: shine 1.6s infinite;
+  border-radius: 1.5vw;
+}
+.progress-bar-loading-component {
+  width: 30vw;
+  height: 3vh;
+  background: linear-gradient(
+      90deg,
+      #0000 33%,
+      rgba(255, 255, 255, 0.8) 50%,
+      #0000 66%
+    )
+    #eaeaea;
+  background-size: 300% 100%;
+  animation: shine 1.6s infinite;
+  margin-left: 18vw;
+  margin-top: 5vh;
+  border-radius: 15vw;
+}
+.second-half-left-loading-component-container {
+  width: 50%;
+}
+.second-half-loading-component-container {
+  display: flex;
+}
+.second-half-right-loading-component-container {
+  width: 50%;
+  width:20vw;
+}
+*/
+.problem-component-loading {
+  height: 20vh;
+  width: 92%;
+  background: linear-gradient(
+      90deg,
+      #0000 33%,
+      rgba(255, 255, 255, 0.8) 50%,
+      #0000 66%
+    )
+    #eaeaea;
+  background-size: 300% 100%;
+  animation: shine 1.6s infinite;
+  border-radius: 1rem;
+  margin-top: 5vh;
+}
+@keyframes shine {
+  0% {
+    background-position: right;
+  }
+}
