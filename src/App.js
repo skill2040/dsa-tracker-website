@@ -13,6 +13,8 @@ import AddNotes from "./components/addnotes/AddNotes";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Leaderboard from "./pages/profile/components/leaderboard/Leaderboard";
+import Loading from "./components/loading/Loading";
+import LoadingComponent from "./components/loading/LoadingComponent";
 
 function App() {
   return (
@@ -34,6 +36,8 @@ function App() {
             <Route path="/settings" element={<Settings />} />
             <Route path="/contribution" element={<ContributionBoard />} />
             <Route path="/addnotes" element={<AddNotes />} />
+            {/* <Route path="/loading" element={<LoadingComponent />} /> */}
+
             <Route
               path="/solution"
               element={<Solution problemName={"Kadane's Algorithm"} />}

@@ -39,7 +39,7 @@ const ProblemsList = ({ selectedTopics, selectedDifficulties }) => {
 
   if (loading) {
     return (
-      <div className="loading-column">
+      <div>
         {Array.from({ length: 4 }).map((_, index) => (
           <LoadingComponent key={index} />
         ))}
