@@ -7,13 +7,13 @@ import Footer from '../../components/footer/Footer.jsx';
 import { Analytics } from "@vercel/analytics/react";
 import Nav from '../../components/nav/Nav.jsx';
 function Home() {
+    const [isLoginCompleted, setIsLoginCompleted] = new useState(false);
     return (
         <div className="App">
-            <Analytics />
-            <Nav />
+            <Nav setIsLoginCompleted={setIsLoginCompleted} />
             <div className="main">
                 <Intro />
-                <Problems />
+                <Problems isLoginCompleted={isLoginCompleted} />
             </div>
             <Footer />
         </div>

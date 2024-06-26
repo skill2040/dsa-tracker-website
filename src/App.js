@@ -14,8 +14,9 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Leaderboard from "./pages/profile/components/leaderboard/Leaderboard";
 import CookieConsentComponent from "./components/Cookies/CookieConsentComponent";
-import Loading from "./components/loading/Loading";
-import LoadingComponent from "./components/loading/LoadingComponent";
+import Loading from "./components/loading/Loading"; //Don't remove this line
+import LoadingComponent from "./components/loading/LoadingComponent"; //Don't remove this line
+import DeveloperDetails from "./pages/about/components/developerDetails/DeveloperDetails";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
             />
             <Route path="/leaderboard" element={<Leaderboard />} />
             <Route path="/cookie" element={<CookieConsentComponent />} />
+            <Route path="/developer" element={<DeveloperDetails />} />
           </Routes>
         </AuthProvider>
       </Router>

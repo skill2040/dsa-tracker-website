@@ -4,9 +4,9 @@ import Topics from '../components/topics/Topics';
 import './style.css'
 import Difficulty from '../components/difficulty/Difficulty';
 import ProgressBar from '../components/progressBar/ProgressBar';
+import LoadingComponent from "../../../components/loading/LoadingComponent";
 
-
-const Problems = () => {
+const Problems = ({ isLoginCompleted }) => {
     const [selectedTopics, setSelectedTopics] = useState([]);
     const [selectedDifficulties, setSelectedDifficulties] = useState([]);
 
@@ -14,7 +14,13 @@ const Problems = () => {
         <div className='problems'>
             <div className="problemsandStatus">
                 <ProgressBar />
-                <ProblemsList selectedTopics={selectedTopics} selectedDifficulties={selectedDifficulties} />
+                {!isLoginCompleted && <div>
+                    {Array.from({ length: 4 }).map((_, index) => (
+                        <LoadingComponent key={index} />
+                    ))}
+                </div>}
+                {isLoginCompleted && <ProblemsList selectedTopics={selectedTopics} selectedDifficulties={selectedDifficulties} />}
+
             </div>
             <div className="topics">
                 <Topics setSelectedTopics={setSelectedTopics} />

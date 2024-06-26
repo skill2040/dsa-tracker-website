@@ -9,7 +9,7 @@ import { signInWithPopup } from "firebase/auth";
 import { IoIosCloseCircle } from "react-icons/io";
 import { useCookies } from "react-cookie";
 
-const Login = ({ toggleLoginModal }) => {
+const Login = ({ toggleLoginModal, setIsLoginCompleted }) => {
   const emailRef = useRef();
   const passwordRef = useRef();
   const { login } = useAuth();
@@ -21,38 +21,87 @@ const Login = ({ toggleLoginModal }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      setError("");
-      setLoading(true);
-      const userCredential = await login(emailRef.current.value, passwordRef.current.value);
-      const user = userCredential.user;
+    setError("");
+    setLoading(true);
 
-      const token = await user.getIdToken();
-      setCookie('userToken', token, {
-        path: '/',
-        secure: true,
-        sameSite: 'Strict',
+    try {
+      const email = emailRef.current.value;
+      const password = passwordRef.current.value;
+
+      const response = await fetch(`http://localhost:9002/auth/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password,
+        }),
       });
 
-      navigate("/");
-    } catch {
-      setError("Failed to log in");
-    }
+      if (!response.ok) {
+        throw new Error("Failed to log in");
+      }
 
-    setLoading(false);
+      console.log('Login Successful');
+
+      const data = await response.json();
+
+      if (data.token) {
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('user', JSON.stringify(data.user));
+      } else {
+        console.error(data.error);
+        throw new Error("Failed to log in");
+      }
+      setIsLoginCompleted(true);
+      toggleLoginModal();
+
+    } catch (error) {
+      console.error("Login Error:", error);
+      setError("Failed to log in");
+    } finally {
+      setLoading(false);
+    }
   };
+
+
 
   const handleGoogleLogin = async () => {
     try {
       const result = await signInWithPopup(auth, googleProvider);
       const user = result.user;
-      console.log(user);
-      const token = await user.getIdToken();
-      setCookie('userToken', token, {
-        path: '/',
-        secure: true,
-        sameSite: 'Strict',
+
+      const response = await fetch(`${process.env.SERVER_URL}/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: emailRef.current.value,
+          password: passwordRef.current.value,
+        }),
       });
+
+      if (!response.ok) {
+        throw new Error("Failed to log in");
+      }
+      const data = await response.json();
+      if (data.token) {
+        localStorage.setItem('token', data.token);
+
+        localStorage.setItem('user', JSON.stringify(data.user));
+      } else {
+
+        console.error(data.error);
+      }
+      // const token = await user.getIdToken();
+
+      // setCookie('userToken', token, {
+      //   path: '/',
+      //   secure: true,
+      //   sameSite: 'Strict',
+      // });
 
       navigate("/");
     } catch (error) {

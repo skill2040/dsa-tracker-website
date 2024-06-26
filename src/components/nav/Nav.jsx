@@ -10,7 +10,7 @@ import Signup from "../../pages/auth/Signup";
 
 
 
-function Nav() {
+function Nav({ setIsLoginCompleted }) {
   const clientUrl = process.env.CLIENT_URL;
   const { currentUser, logout } = useAuth();
   const [play] = useSound(loud_btn);
@@ -180,7 +180,7 @@ function Nav() {
       {showLoginModel && (
         <div className="modal-overlay">
           <div className="login-modal">
-            <Login toggleLoginModal={toggleLoginModal} />
+            <Login toggleLoginModal={toggleLoginModal} setIsLoginCompleted={setIsLoginCompleted} />
           </div>
         </div>
       )}

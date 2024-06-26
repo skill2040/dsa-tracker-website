@@ -65,7 +65,7 @@ const Signup = ({ toggleSignupModal }) => {
     }
   };
 
-  
+
 
   return (
     <div className="outer-container-signup">

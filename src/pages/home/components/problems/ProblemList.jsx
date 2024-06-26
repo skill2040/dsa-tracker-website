@@ -3,20 +3,23 @@ import ProblemComponent from "./components/ProblemComponent.jsx";
 import "./style.css";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import LoadingComponent from "../../../../components/loading/LoadingComponent.jsx";
-import ErrorMessageConsole from "../../../../components/error/ErrorMessageConsole.jsx";
+
+import { getUserIdFromToken } from '../../../../store/userIdFromToken.js';
 
 const ProblemsList = ({ selectedTopics, selectedDifficulties }) => {
   const [data, setData] = useState({});
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const topicsPerPage = 1; // Display 1 topic per page
+  const topicsPerPage = 1;
 
   const fetchData = async () => {
     try {
       await new Promise((resolve) => setTimeout(resolve, 2000));
+      const userid = getUserIdFromToken();
+      console.log(userid);
       const response = await fetch(
-        "https://dsa-tracker-backend-kappa.vercel.app/home",
+        `${process.env.REACT_APP_SERVER_URL}/home`,
         {
           method: "GET",
         }
@@ -25,8 +28,11 @@ const ProblemsList = ({ selectedTopics, selectedDifficulties }) => {
         throw new Error("Failed to fetch");
       }
       const responseData = await response.json();
-      setData(responseData.data);
+      console.log(responseData.data);
+      setData(responseData.data)
+      const token = getUserIdFromToken();
       setLoading(false);
+      console.log(token);
     } catch (error) {
       console.error("Fetch error:", error);
       setError(error);
@@ -49,34 +55,26 @@ const ProblemsList = ({ selectedTopics, selectedDifficulties }) => {
   }
 
   if (error) {
-    return (
-      <div>
-        {" "}
-        <ErrorMessageConsole
-          message={`Error: ${error.message}`}
-          color="tomato"
-        />
-      </div>
-    );
+    return <div>Error: {error.message}</div>;
   }
 
   // Filter data based on selected topics and difficulties
   const filteredData =
     selectedTopics.length || selectedDifficulties.length
       ? Object.keys(data).reduce((acc, topic) => {
-          if (selectedTopics.length && !selectedTopics.includes(topic)) {
-            return acc;
-          }
-          const filteredProblems = data[topic].filter((problem) =>
-            selectedDifficulties.length
-              ? selectedDifficulties.includes(problem.Difficulty)
-              : true
-          );
-          if (filteredProblems.length) {
-            acc[topic] = filteredProblems;
-          }
+        if (selectedTopics.length && !selectedTopics.includes(topic)) {
           return acc;
-        }, {})
+        }
+        const filteredProblems = data[topic].filter((problem) =>
+          selectedDifficulties.length
+            ? selectedDifficulties.includes(problem.Difficulty)
+            : true
+        );
+        if (filteredProblems.length) {
+          acc[topic] = filteredProblems;
+        }
+        return acc;
+      }, {})
       : data;
 
   // Pagination logic

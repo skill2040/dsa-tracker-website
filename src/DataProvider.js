@@ -29,8 +29,6 @@ export const DataProvider = ({ children }) => {
     useEffect(() => {
         fetchData();
     }, []);
-
-    // Render children only when loading is false
     return loading ? null : (
         <DataContext.Provider value={{ data, loading, error, fetchData }}>
             {children}
